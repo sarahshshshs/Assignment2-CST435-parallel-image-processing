@@ -39,8 +39,7 @@ A small subset of the Food-101 dataset was used for testing:
 - bibimbap
 - cannoli
 
-Each class contains 50 images. The dataset is not included in this
-repository due to size constraints.
+Each class contains 50 images. the dataet is in the zip file
 
 ---
 
