@@ -1,4 +1,4 @@
-# Assignment2-CST435-parallel-image-processing
+# Assignment 2-CST435-parallel-image-processing
 Parallel Image Processing using Python (multiprocessing module; concurrent.futures) on GCP
 
 # CST435 – Parallel Image Processing on GCP
