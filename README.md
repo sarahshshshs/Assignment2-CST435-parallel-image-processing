@@ -29,7 +29,9 @@ parallel execution.
   numbers of processes (1, 2, 4)
 
 ### 2. Concurrent Futures
-
+- Implemented using Python’s concurrent.futures.ProcessPoolExecutor
+- Image processing tasks are automatically scheduled and distributed among worker processes
+- Execution time, speedup, and efficiency are evaluated for different numbers of worker processes (1, 2, 4)
 
 ---
 
