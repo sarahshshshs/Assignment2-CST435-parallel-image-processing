@@ -8,16 +8,29 @@ This project implements a parallel image processing system using Python.
 A subset of the Food-101 dataset is processed using two different
 parallel programming paradigms and executed on Google Cloud Platform (GCP).
 
+The Objective of this project are:
+1. To design and implement parallel programs using multiple parallel computing paradigms
+2. To deploy and execute parallel applications on Google Cloud Platform (GCP)
+3. To analyze performance characteristics of parallel algorithms through speedup and
+efficiency metrics
+
 The system applies a sequence of image filters to each image:
-- Grayscale conversion
-- Gaussian blur
-- Edge detection
-- Image sharpening
-- Brightness adjustment
+1. **Grayscale Conversion**
+   - RGB images are converted to grayscale using the luminance formula
+     (ITU-R BT.601 standard).
 
-Each image is processed independently, making the problem suitable for
-parallel execution.
+2. **Gaussian Blur**
+   - A 3×3 Gaussian kernel is applied for image smoothing.
 
+3. **Edge Detection**
+   - Sobel filters are applied in the horizontal and vertical directions.
+   - Edge magnitude is computed from the Sobel gradients.
+
+4. **Image Sharpening**
+   - A sharpening kernel is applied to enhance edges and details.
+
+5. **Brightness Adjustment**
+   - Pixel intensity values are increased to improve brightness.
 ---
 
 ## Parallel Implementations
@@ -26,7 +39,7 @@ parallel execution.
 - Implemented using Python’s `multiprocessing.Pool`
 - Each process handles one image at a time
 - Execution time, speedup, and efficiency are measured for different
-  numbers of processes (1, 2, 4)
+  numbers of processes
 
 ### 2. Concurrent Futures
 - Implemented using Python’s concurrent.futures.ProcessPoolExecutor
@@ -80,7 +93,7 @@ source venv/bin/activate
 
 ---
 ### 4. Install Required Python Libraries
-pip install pillow
+pip install opencv-python numpy
 
 ---
 ### 5. Upload Project Files
