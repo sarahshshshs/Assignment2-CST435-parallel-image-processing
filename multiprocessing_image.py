@@ -1,3 +1,26 @@
+"""
+CST435: Parallel and Cloud Computing
+Assignment 2
+
+Multiprocessing Implementation (Python)
+
+This script applies an image processing pipeline to a subset of the
+Food-101 dataset using Python's multiprocessing module.
+
+Operations:
+1. Grayscale conversion
+2. Gaussian blur
+3. Edge detection
+4. Image sharpening
+5. Brightness adjustment
+
+The program measures execution time, speedup, and efficiency
+for different numbers of processes when executed on Google Cloud Platform.
+
+Author: Sarah Nur Dinie
+"""
+
+
 import os
 import time
 from multiprocessing import Pool, cpu_count
@@ -70,3 +93,4 @@ if __name__ == "__main__":
         print(f"Execution time: {exec_time:.2f} seconds")
         print(f"Speedup: {speedup:.2f}")
         print(f"Efficiency: {efficiency:.2f}")
+
