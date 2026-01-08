@@ -1,3 +1,24 @@
+"""
+CST435: Parallel and Cloud Computing
+Assignment 2
+
+concurrent.futures Implementation (Python)
+
+This script applies an image processing pipeline to a subset of the
+Food-101 dataset using Python's concurrent.futures. A subset of the Food-101 dataset is
+processed by applying the following filters:
+
+1. Grayscale conversion using luminance formula
+2. Gaussian blur using a 3×3 kernel
+3. Sobel edge detection
+4. Image sharpening
+5. Brightness adjustment
+
+The program measures execution time, speedup, and efficiency
+for different numbers of processes when executed on Google Cloud Platform.
+
+Author: Nur Rabiatul Adawiyah 
+"""
 import os
 import time
 import cv2
