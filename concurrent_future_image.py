@@ -108,16 +108,17 @@ if __name__ == "__main__":
         baseline_time = run_concurrent(1)
         print(f"\nBaseline (1 worker): {baseline_time:.2f} seconds")
         
-        # Test multiple worker counts
-        for workers in [2, 4, None]:  # None = all cores
+       # Test 2, 4, and max CPU cores (same as multiprocessing)
+        test_counts = sorted(list(set([2, 4, cpu_cores])))
+
+        for workers in test_counts:
             exec_time = run_concurrent(workers)
-            actual_workers = workers or os.cpu_count()
+
             speedup = baseline_time / exec_time
-            efficiency = speedup / actual_workers
-            
-            print(f"\nWorkers: {actual_workers}")
+            efficiency = speedup / workers
+
+            print(f"\nWorkers: {workers}")
             print(f"Execution time: {exec_time:.2f} seconds")
             print(f"Speedup: {speedup:.2f}")
             print(f"Efficiency: {efficiency:.2f}")
-
 
