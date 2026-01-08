@@ -100,7 +100,7 @@ pip install opencv-python numpy
 
 Upload the following files to the VM:
 - multiprocessing_image.py
-- concurrent_image_processing.py
+- concurrent_future_image.py
 - dataset.zip (Food-101 subset)
 after uploading extract the dataset: unzip dataset.zip
 
@@ -110,7 +110,7 @@ python concurrent_image.py
 
 ---
 ### 7.Run the Concurrent Futures Implementation
-python concurrent_image_processing.py
+python concurrent_future_image.py
 
 
 
