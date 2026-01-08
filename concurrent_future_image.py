@@ -99,6 +99,10 @@ def process_image(task):
 
 # --- 4. MAIN EXECUTION ---
 if __name__ == "__main__":
+    
+    # Fix: Define cpu_cores by using os.cpu_count()
+    cpu_cores = os.cpu_count()
+    
     if not image_tasks:
         print("No images found! Check your INPUT_DIR path.")
     else:
