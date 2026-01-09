@@ -106,7 +106,7 @@ after uploading extract the dataset: unzip dataset.zip
 
 ---
 ### 6.Run the Multiprocessing Implementation
-python concurrent_image.py
+python multiprocessing_image.py
 
 ---
 ### 7.Run the Concurrent Futures Implementation
