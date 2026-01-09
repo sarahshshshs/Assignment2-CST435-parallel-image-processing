@@ -98,7 +98,7 @@ def run_concurrent(workers):
     return end - start
 
 # --- 4. MAIN EXECUTION ---
-if name == "main":
+if __name__ == "__main__":
     
     # Fix: Define cpu_cores by using os.cpu_count()
     cpu_cores = os.cpu_count()
