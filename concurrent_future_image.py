@@ -86,9 +86,9 @@ def process_image(task):
     cv2.imwrite(output_path, final_result)
     
     return filename
-  
-  # --- 3. RUN CONCURRENT PROCESSING ---
-  def run_concurrent(workers):
+
+# --- 3. RUN CONCURRENT PROCESSING ---
+def run_concurrent(workers):
     start = time.time()
     
     with ProcessPoolExecutor(max_workers=workers) as executor:
@@ -98,7 +98,7 @@ def process_image(task):
     return end - start
 
 # --- 4. MAIN EXECUTION ---
-if __name__ == "__main__":
+if name == "main":
     
     # Fix: Define cpu_cores by using os.cpu_count()
     cpu_cores = os.cpu_count()
@@ -112,7 +112,7 @@ if __name__ == "__main__":
         baseline_time = run_concurrent(1)
         print(f"\nBaseline (1 worker): {baseline_time:.2f} seconds")
         
-       # Test 2, 4, and max CPU cores (same as multiprocessing)
+        # Test 2, 4, and max CPU cores (same as multiprocessing)
         test_counts = sorted(list(set([2, 4, cpu_cores])))
 
         for workers in test_counts:
@@ -125,4 +125,3 @@ if __name__ == "__main__":
             print(f"Execution time: {exec_time:.2f} seconds")
             print(f"Speedup: {speedup:.2f}")
             print(f"Efficiency: {efficiency:.2f}")
-
