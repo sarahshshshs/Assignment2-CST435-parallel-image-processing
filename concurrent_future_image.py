@@ -49,6 +49,13 @@ for category in os.listdir(INPUT_DIR):
 
 # --- 2. IMAGE PROCESSING FUNCTION ---
 def process_image(task):
+    """
+    This function represents the 'Task' in our parallel design. 
+    Parallelization Strategy: Each image is treated as an independent unit 
+    (Data Parallelism). Since filtering operations are pixel-independent, 
+    we can process them across multiple cores without needing shared memory 
+    or synchronization locks, which maximizes throughput.
+    """
     category, filename = task
     
     input_path = os.path.join(INPUT_DIR, category, filename)
@@ -89,6 +96,14 @@ def process_image(task):
 
 # --- 3. RUN CONCURRENT PROCESSING ---
 def run_concurrent(workers):
+    """
+    Implementation Decision: Using ProcessPoolExecutor from concurrent.futures.
+    Why: Unlike Threading, Multiprocessing bypasses Python's Global Interpreter 
+    Lock (GIL), allowing us to utilize multiple CPU cores for CPU-bound 
+    OpenCV operations. The 'with' statement ensures proper resource 
+    cleanup (joining processes) after the task pool is exhausted.
+    """
+    
     start = time.time()
     
     with ProcessPoolExecutor(max_workers=workers) as executor:
@@ -99,6 +114,12 @@ def run_concurrent(workers):
 
 # --- 4. MAIN EXECUTION ---
 if __name__ == "__main__":
+    """
+    Scaling Analysis: We test 1, 2, and 4 workers to measure the Parallel 
+    Efficiency and observe the Scalability Wall. This follows Amdahl's Law 
+    by identifying the point where the overhead of process creation and 
+    Disk I/O begins to outweigh the speedup of parallel CPU computation.
+    """
     
     # Fix: Define cpu_cores by using os.cpu_count()
     cpu_cores = os.cpu_count()
